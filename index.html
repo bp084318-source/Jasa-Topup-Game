@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cyber Defense System</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+<h1>CYBER DEFENSE SYSTEM</h1>
+
+<!-- 🔍 TikTok Scanner -->
+<div class="card">
+  <h2>🎵 TikTok Intelligence Scanner</h2>
+
+  <input type="text" id="tiktokUser" placeholder="Masukkan username TikTok">
+
+  <button onclick="scanTikTok()">SCAN ACCOUNT</button>
+
+  <div id="ttStatus"></div>
+
+  <div class="progress-bar">
+    <div id="ttProgress"></div>
+  </div>
+
+  <div id="ttResult" class="result-box"></div>
+</div>
+
+<!-- 🖼️ Image Scanner -->
+<div class="card">
+  <h2>🖼️ Image Reverse Scanner</h2>
+
+  <input type="file" id="imageUpload" accept="image/*">
+
+  <img id="preview">
+
+  <button onclick="startImageScan()">SCAN IMAGE</button>
+
+  <div id="imgStatus"></div>
+
+  <div class="progress-bar">
+    <div id="imgProgress"></div>
+  </div>
+
+  <div id="imgResult" class="result-box"></div>
+
+  <p class="privacy">🔒 Foto tidak disimpan. Data dihapus otomatis.</p>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
