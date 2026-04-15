@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cyber Defense</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+<h1>CYBER DEFENSE SYSTEM</h1>
+
+<div class="card">
+  <h2>🔍 Risk Scanner</h2>
+
+  <label><input type="checkbox" id="location"> Share lokasi</label>
+  <label><input type="checkbox" id="phone"> Share nomor</label>
+  <label><input type="checkbox" id="sameuser"> Username sama</label>
+
+  <button onclick="scan()">SCAN</button>
+</div>
+
+<div class="card">
+  <h2>📊 Hasil</h2>
+  <p id="status">-</p>
+  <p id="score">-</p>
+</div>
+
+<div class="card">
+  <h2>💬 Cek Chat</h2>
+  <textarea id="chat"></textarea>
+  <button onclick="analyzeChat()">ANALYZE</button>
+  <p id="chatResult"></p>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
