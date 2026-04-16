@@ -34,10 +34,22 @@ function buy(game, item) {
   }
 }
 
+function trackOrder(item) {
+  let orders = JSON.parse(localStorage.getItem("orders")) || {};
+
+  if (!orders[item]) {
+    orders[item] = 0;
+  }
+
+  orders[item]++;
+
+  localStorage.setItem("orders", JSON.stringify(orders));
+}
 // tombol order WA
 function order() {
   const userId = document.getElementById("userId").value;
   const serverInput = document.getElementById("serverId");
+  trackOrder(selectedItem);
 
   const gameType = document.body.dataset.game; // ambil dari body
   const isML = gameType === "ml";
@@ -88,6 +100,38 @@ Mohon segera diproses.`;
   }, 1500);
 }
 
+function getBestSeller() {
+  let orders = JSON.parse(localStorage.getItem("orders")) || {};
+  let max = 0;
+  let best = null;
+
+  for (let item in orders) {
+    if (orders[item] > max) {
+      max = orders[item];
+      best = item;
+    }
+  }
+
+  return best;
+}
+
+function applyBestSellerBadge() {
+  const best = getBestSeller();
+
+  document.querySelectorAll(".product-card").forEach(card => {
+    const title = card.querySelector("h3");
+
+    if (title && title.innerText === best) {
+      if (!card.querySelector(".badge")) {
+        const badge = document.createElement("span");
+        badge.className = "badge";
+        badge.innerText = "🔥 TERLARIS";
+
+        card.appendChild(badge);
+      }
+    }
+  });
+}
 // AUTO SCALE & MOBILE OPTIMIZATION
 function optimizeMobileUI() {
   if (window.innerWidth < 768) {
@@ -123,6 +167,10 @@ function playClick() {
     sound.play();
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  applyBestSellerBadge();
+});
 
 // AUTO TAMBAH KE SEMUA BUTTON
 document.addEventListener("DOMContentLoaded", () => {
