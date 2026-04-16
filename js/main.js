@@ -70,7 +70,22 @@ ID: ${userId}${server ? ` (${server})` : ""}
 Mohon segera diproses.`;
 
   const url = `https://wa.me/${adminNumber}?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank");
+  const loading = document.getElementById("loading");
+
+  // TAMPILKAN LOADING
+  if (loading) {
+    loading.style.display = "flex";
+  }
+
+  // DELAY
+  setTimeout(() => {
+   window.open(url, "_blank");
+
+  // HILANGKAN LOADING
+  if (loading) {
+    loading.style.display = "none";
+  }
+  }, 1500);
 }
 
 // AUTO SCALE & MOBILE OPTIMIZATION
