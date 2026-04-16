@@ -87,8 +87,8 @@
 </div>
 
 <div class="card" id="orderForm">
-  <input type="text" id="userId" placeholder="Masukkan ID ML">
-  <input type="text" id="serverId" placeholder="Masukkan Server Id (contoh: 1234)">
+  <input type="text" id="userId" inputmode="numeric" pattern="[0-9]*" placeholder="Masukkan ID">
+  <input type="text" id="serverId" inputmode="numeric" pattern="[0-9]*" placeholder="Masukkan ID Server">
   <p id="selectedItem"></p>
   <button onclick="order()">ORDER VIA WHATSAPP</button>
 </div>
