@@ -85,6 +85,10 @@ body::before {
 
 /* FORM CARD */
 .card {
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  overflow: hidden; /* penting */
   border: 1px solid #00ff99;
   padding: 15px;
   margin-top: 20px;
@@ -94,13 +98,15 @@ body::before {
 
 /* INPUT */
 input {
-  width: 90%;
-  padding: 10px;
+  width: 100%;
+  max-width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #00ff99;
   margin-top: 10px;
   background: black;
   color: #00ff99;
-  border: 1px solid #00ff99;
-  border-radius: 8px;
 }
 
 /* BUTTON */
@@ -134,7 +140,9 @@ h1, h2, h3 {
 
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
-
+  .card {
+    padding: 15px;
+  }
   .grid {
     grid-template-columns: 1fr;
   }
@@ -162,4 +170,8 @@ h1, h2, h3 {
   h1 {
     font-size: 20px;
   }
+}
+
+* {
+  box-sizing: border-box;
 }
